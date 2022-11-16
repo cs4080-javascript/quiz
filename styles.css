@@ -1,0 +1,8 @@
+.set-container {
+  display: flex;
+  gap: 10px 0;
+}
+
+.set {
+  width: 500px;
+}
