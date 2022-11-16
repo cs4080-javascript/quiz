@@ -3,7 +3,7 @@ class QuizSet {
   constructor(name, description) {
     this.name = name;
     this.description = description;
-    this.cards = {};
+    this.cards = [];
   }
 
   shuffle() {
@@ -15,7 +15,10 @@ class QuizSet {
   }
 
   add(term, definition) {
-
+    this.cards.push({
+      term,
+      definition
+    });
   }
 
 }

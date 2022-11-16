@@ -2,6 +2,9 @@ import QuizSet from "./QuizSet.js";
 import { sets, saveSets } from "./sets.js";
 
 const foo = new QuizSet("Concepts of Programming - Chapter 1", "The overview of languages");
+foo.add("variable", "not consistent or having a fixed pattern; liable to change.");
+foo.add("changeable", "irregular; inconstant.");
+
 const boo = new QuizSet("bob smith", "feez nuts");
 sets.push(foo);
 sets.push(boo);
