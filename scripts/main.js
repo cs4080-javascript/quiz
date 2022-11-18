@@ -18,7 +18,7 @@ const root = document.getElementById("root");
 const setsContainer = document.createElement("div");
 setsContainer.classList.add("set-container");
 
-sets.forEach((set) => {
+for (const set of sets) {
   const setContainer = document.createElement("div");
   setContainer.classList.add("set");
   setContainer.setAttribute("id", set.name);
@@ -49,7 +49,7 @@ sets.forEach((set) => {
   setContainer.appendChild(editButton);
 
   setsContainer.appendChild(setContainer);
-});
+}
 
 root.appendChild(setsContainer);
 

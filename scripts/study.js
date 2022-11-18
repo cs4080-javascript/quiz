@@ -2,12 +2,12 @@ import { getSetByURLParam } from "./sets.js";
 
 const set = getSetByURLParam();
 
-const root = document.getElementById("root");
+const cards = document.getElementById("cards");
 
-set.cards.forEach(card => {
+for (const card of set.cards) {
   const { term, definition } = card;
   
-  const cardFrame = document.createElement("div");
+  const cardFrame = document.createElement("button");
   cardFrame.classList.add("card");
 
   const container = document.createElement("div");
@@ -20,12 +20,18 @@ set.cards.forEach(card => {
   backFrame.classList.add("card-back");
 
   const termLabel = document.createElement("h1");
-  termLabel.classList.add("m-auto");
   termLabel.innerText = term;
 
   const definitionLabel = document.createElement("p");
-  definitionLabel.classList.add("m-auto");
   definitionLabel.innerText = definition;
+
+  cardFrame.onclick = function() {
+    if (container.classList.contains("card-flipped")) {
+      container.classList.remove("card-flipped");
+    } else {
+      container.classList.add("card-flipped");
+    }
+  }
 
   frontFrame.appendChild(termLabel);
   backFrame.appendChild(definitionLabel);
@@ -35,5 +41,5 @@ set.cards.forEach(card => {
 
   cardFrame.appendChild(container);
 
-  root.appendChild(cardFrame);
-});
+  cards.appendChild(cardFrame);
+}

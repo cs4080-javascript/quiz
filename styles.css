@@ -16,9 +16,12 @@
 }
 
 .card {
-  width: 300px;
-  height: 200px;
+  width: 500px;
+  height: 300px;
   display: flex;
+  border: none;
+  cursor: pointer;
+  background: none;
   perspective: 1000px;
 }
 
@@ -29,10 +32,6 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
 }
 
 .card-front, .card-back {
@@ -50,11 +49,15 @@
 
 .card-front {
   margin: auto;
-  background-color: bisque;
+  background-color: rgb(230, 230, 230);
 }
 
 .card-back {
   margin: auto;
-  background-color: aqua;
+  background-color: rgb(207, 207, 207);
+  transform: rotateY(180deg);
+}
+
+.card-flipped {
   transform: rotateY(180deg);
 }
