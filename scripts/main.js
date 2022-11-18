@@ -6,6 +6,8 @@ foo.add("variable", "not consistent or having a fixed pattern; liable to change.
 foo.add("changeable", "irregular; inconstant.");
 
 const boo = new QuizSet("bob smith", "feez nuts");
+boo.add("deric", "deric was here");
+
 sets.push(foo);
 sets.push(boo);
 
