@@ -1,8 +1,5 @@
-
-const sets = [];
-
-function saveSets() {
-  const payload = JSON.stringify(sets);
+function saveSets(value) {
+  const payload = JSON.stringify(value);
   window.localStorage.setItem("sets", payload);
 }
 
@@ -11,17 +8,21 @@ function loadSets() {
   return JSON.parse(sets);
 }
 
-function getSetByURLParam() {
+function getSetIdByURLParam() {
   const params = new URLSearchParams(window.location.search);
   const setId = params.get("id");
-  
-  const sets = loadSets();
-  return sets[setId];
+
+  return setId;
+}
+
+function updateSet(value) {
+  const payload = JSON.stringify(value);
+  window.localStorage.setItem("sets", payload);
 }
 
 export {
-  sets,
   saveSets,
   loadSets,
-  getSetByURLParam
+  updateSet,
+  getSetIdByURLParam
 }

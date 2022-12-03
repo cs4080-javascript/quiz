@@ -1,6 +1,11 @@
-import { getSetByURLParam } from "./sets.js";
+import { loadSets, getSetIdByURLParam } from "./sets.js";
 
-const set = getSetByURLParam();
+const sets = loadSets();
+const setId = getSetIdByURLParam();
+
+const set = sets[setId];
+
+const root = document.getElementById("root");
 
 const cards = document.getElementById("cards");
 

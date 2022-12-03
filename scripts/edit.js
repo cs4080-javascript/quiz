@@ -1,12 +1,15 @@
-import { getSetByURLParam } from "./sets.js";
+import { loadSets, getSetIdByURLParam, updateSet } from "./sets.js";
 
-const set = getSetByURLParam();
+const sets = loadSets();
+const setId = getSetIdByURLParam();
 
-console.log(set);
+const set = sets[setId];
 
 const cards = document.getElementById("cards");
 
-for (const card of set.cards) {
+for (let id = 0; id < set.cards.length; id++) {
+  const card = set.cards[id];
+
   const { term, definition } = card;
 
   //creates edit term and definition textboxes
@@ -52,6 +55,13 @@ for (const card of set.cards) {
     let newDefinition = editDefinitionTextBox.value;
     termLabel.textContent = newTerm;
     definitionLabel.textContent = newDefinition;
+
+    sets[setId].cards[id] = {
+      term: newTerm,
+      definition: newDefinition
+    }
+
+    updateSet(sets);
   }
 
   frontFrame.appendChild(termLabel);
