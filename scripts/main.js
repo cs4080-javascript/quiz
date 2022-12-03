@@ -2,7 +2,6 @@ import QuizSet from "./QuizSet.js";
 import { saveSets, loadSets } from "./sets.js";
 
 const useSeedData = loadSets() !== null;
-console.log(useSeedData);
 
 const currentSets = [];
 
@@ -17,7 +16,6 @@ currentSets.push(foo);
 currentSets.push(boo);
 
 const sets = useSeedData ? loadSets() : currentSets;
-console.log(sets);
 
 saveSets(sets);
 
