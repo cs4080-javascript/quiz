@@ -52,12 +52,21 @@ for (const set of sets) {
     window.location.href = `${window.location.origin}/edit.html?id=${id}`;
   }
 
+  const addCardButton = document.createElement("button");
+  addCardButton.innerText = "add";
+  addCardButton.onclick = function() {
+    const id = sets.indexOf(set);
+    window.location.href = `${window.location.origin}/add.html?id=${id}`;
+    
+  }
+
  
 
   setContainer.appendChild(titleLabel);
   setContainer.appendChild(descriptionLabel);
   setContainer.appendChild(studyButton);
   setContainer.appendChild(editButton);
+  setContainer.appendChild(addCardButton);
 
 
   setsContainer.appendChild(setContainer);
@@ -69,6 +78,7 @@ const newSetForm = document.getElementById("form-new-set");
 const addCardFrame = document.getElementById("form-new-card");
 const addCardButton = document.getElementById("form-new-card-button");
 const addSetButton = document.getElementById("addSetButton");
+
 
 addCardButton.onclick = function(event) {
   event.preventDefault();
