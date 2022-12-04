@@ -8,6 +8,9 @@ const set = sets[setId];
 const cards = document.getElementById("cards");
 
 for (let id = 0; id < set.cards.length; id++) {
+  const card = set.cards[id];
+
+  const { term, definition } = card;
 
   //creates edit term and definition textboxes
   const editTermLabel = document.createElement("label");
@@ -28,6 +31,12 @@ for (let id = 0; id < set.cards.length; id++) {
   //creates edit button
   const editButton = document.createElement("button");
   editButton.textContent = "Edit";
+
+  const termLabel = document.createElement("h1");
+  termLabel.innerText = term;
+
+  const definitionLabel = document.createElement("p");
+  definitionLabel.innerText = definition;
 
   //edits term and definition
   editButton.onclick = function() {
