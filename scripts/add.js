@@ -1,13 +1,23 @@
+import QuizSet from "./QuizSet.js";
+
 import { loadSets, getSetIdByURLParam, updateSet } from "./sets.js";
 
+
+
+
 const sets = loadSets();
+
+
 const setId = getSetIdByURLParam();
 
 const set = sets[setId];
 
+
+
+
 const cards = document.getElementById("cards");
 
-  const card = set.cards[0];
+  const card = set.cards;
 
   const { term, definition } = card;
 
@@ -45,12 +55,11 @@ const cards = document.getElementById("cards");
     definitionLabel.textContent = newDefinition;
 
     console.log(set.cards.length);
-    let size = set.cards.length;
-    set.cards[size++] = ({
+    set.cards.push({
       term: newTerm,
       definition: newDefinition
     })
-    console.log(sets);
+    
    
     
   

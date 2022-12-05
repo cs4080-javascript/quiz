@@ -1,5 +1,5 @@
 import QuizSet from "./QuizSet.js";
-import { saveSets, loadSets, updateSet } from "./sets.js";
+import { saveSets, loadSets } from "./sets.js";
 
 const useSeedData = loadSets() !== null;
 
@@ -12,7 +12,12 @@ foo.add("changeable", "irregular; inconstant.");
 
 
 const boo = new QuizSet("bob smith", "feez nuts");
-boo.add("deric", "deric was here");
+boo.add("test1", "");
+boo.add("test2", "");
+boo.add("test3", "");
+boo.add("test4", "");
+boo.add("test5", "");
+boo.add("test6", "");
 
 currentSets.push(foo);
 currentSets.push(boo);
@@ -60,6 +65,14 @@ for (const set of sets) {
     
   }
 
+  const deleteCardButton = document.createElement("button");
+  deleteCardButton.innerText = "delete";
+  deleteCardButton.onclick = function() {
+    const id = sets.indexOf(set);
+    window.location.href = `${window.location.origin}/delete.html?id=${id}`;
+
+  }
+
  
 
   setContainer.appendChild(titleLabel);
@@ -67,6 +80,7 @@ for (const set of sets) {
   setContainer.appendChild(studyButton);
   setContainer.appendChild(editButton);
   setContainer.appendChild(addCardButton);
+  setContainer.appendChild(deleteCardButton);
 
 
   setsContainer.appendChild(setContainer);
@@ -133,3 +147,5 @@ newSetForm.onsubmit = function(event) {
 
   console.log("deeez nuts");
 }
+
+
