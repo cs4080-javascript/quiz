@@ -7,21 +7,39 @@
   align-items: center;
   justify-content: space-between;
 }
+.wrong-buttons {
+  background-color: red;
+  height: 100px;
+  
+}
+
+.correct-buttons {
+  background-color: rgb(0, 255, 127);
+  height: 100px;
+  vertical-align: middle;
+
+}
 
 .set-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px 0;
 }
 
 .set {
-  width: 500px;
+  width: 470px;
+  
 }
+
+
 
 .center {
   margin: auto;
 }
 
 .card {
+  margin: auto;
   width: 500px;
   height: 300px;
   display: flex;

@@ -44,21 +44,21 @@ for (const set of sets) {
   descriptionLabel.innerText = set.description;
 
   const studyButton = document.createElement("button");
-  studyButton.innerText = "Study";
+  studyButton.innerText = "Study set";
   studyButton.onclick = function() {
     const id = sets.indexOf(set);
     window.location.href = `${window.location.origin}/study.html?id=${id}`;
   }
 
   const editButton = document.createElement("button");
-  editButton.innerText = "Edit";
+  editButton.innerText = "Edit card";
   editButton.onclick = function() {
     const id = sets.indexOf(set);
     window.location.href = `${window.location.origin}/edit.html?id=${id}`;
   }
 
   const addCardButton = document.createElement("button");
-  addCardButton.innerText = "add";
+  addCardButton.innerText = "Add card";
   addCardButton.onclick = function() {
     const id = sets.indexOf(set);
     window.location.href = `${window.location.origin}/add.html?id=${id}`;
@@ -66,7 +66,7 @@ for (const set of sets) {
   }
 
   const deleteCardButton = document.createElement("button");
-  deleteCardButton.innerText = "delete";
+  deleteCardButton.innerText = "Delete card";
   deleteCardButton.onclick = function() {
     const id = sets.indexOf(set);
     window.location.href = `${window.location.origin}/delete.html?id=${id}`;
@@ -90,42 +90,10 @@ root.appendChild(setsContainer);
 
 const newSetForm = document.getElementById("form-new-set");
 const addCardFrame = document.getElementById("form-new-card");
-const addCardButton = document.getElementById("form-new-card-button");
+
 const addSetButton = document.getElementById("addSetButton");
 
 
-addCardButton.onclick = function(event) {
-  event.preventDefault();
-
-  const inputFrame = document.createElement("div");
-
-  const termFrame = document.createElement("div");
-
-  const termLabel = document.createElement("label")
-  termLabel.innerText = "Term";
-
-  const termInput = document.createElement("input");
-  termInput.setAttribute("type", "text");
-
-  termFrame.appendChild(termLabel);
-  termFrame.appendChild(termInput);
-
-  const definitionFrame = document.createElement("div");
-
-  const definitionLabel = document.createElement("label");
-  definitionLabel.innerText = "Definition";
-
-  const definitionInput = document.createElement("input");
-  definitionInput.setAttribute("type", "text");
-
-  definitionFrame.appendChild(definitionLabel);
-  definitionFrame.appendChild(definitionInput);
-
-  inputFrame.appendChild(termFrame);
-  inputFrame.appendChild(definitionFrame);
-
-  addCardFrame.appendChild(inputFrame);
-}
 
 addSetButton.onclick = function(event) {
   let newSetTitle = document.getElementById("new-set-title").value;
