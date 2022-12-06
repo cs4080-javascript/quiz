@@ -49,7 +49,7 @@ for (const set of sets) {
   studyButton.innerText = "Study set";
   studyButton.onclick = function() {
     const id = sets.indexOf(set);
-    window.location.href = `${window.location.origin}/index.html`;
+    window.location.href = `${window.location.origin}/study.html?id=${id}`  ;
   }
 
   const editButton = document.createElement("button");
