@@ -23,9 +23,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
         setTimeout(()=>{
             intro.style.top = '-100vh';
+            window.location.href = `${window.location.origin}/index.html`;
         }, 2300);
 
     });
 })
-window.location.href = `${window.location.origin}/index.html`;
+
 
