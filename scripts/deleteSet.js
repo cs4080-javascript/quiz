@@ -23,7 +23,7 @@ function deleteSet() {console.log("delete set button clicked");
       sets[set.length - 2] = sets[sets.length - 1];
       //sets.pop();
       sets.pop();
-      
+
       sets.pop();
       break;
       

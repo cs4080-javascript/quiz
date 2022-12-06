@@ -51,11 +51,7 @@ const cards = document.getElementById("cards");
     for(let i = 0; i < set.cards.length; i++) {
      
         if(set.cards[i].term === newTerm) {  
-        
-          console.log("card found");
-          console.log(set.cards[i]);
-          console.log(set.cards[i].definition);
-          console.log(set.cards[i].term)
+
           set.cards.push({
             term: "temp",
             definition: "temp"

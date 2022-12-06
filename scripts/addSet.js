@@ -1,7 +1,9 @@
 import { loadSets, saveSets } from "./sets.js";
 import QuizSet from "./QuizSet.js";
 
+console.log("huh");
 const sets = loadSets();
+console.log("huh");
 
 function addSet() {
     let newSetTitle = document.getElementById("new-set-title").value;
