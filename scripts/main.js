@@ -93,8 +93,6 @@ const addCardFrame = document.getElementById("form-new-card");
 
 const addSetButton = document.getElementById("addSetButton");
 
-
-
 addSetButton.onclick = function(event) {
   let newSetTitle = document.getElementById("new-set-title").value;
   let newSetDescription = document.getElementById("new-set-description").value;
