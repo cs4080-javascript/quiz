@@ -47,8 +47,7 @@ for (const set of sets) {
   studyButton.innerText = "Study set TEST";
   studyButton.onclick = function() {
     const id = sets.indexOf(set);
-    window.location.href = `${window.location.origin}/study.html?id=${id}`;
-  }
+window.location.href = `${window.location.origin}/study.html?id=${id}`;
 
   const editButton = document.createElement("button");
   editButton.innerText = "Edit card";
