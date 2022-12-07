@@ -26,41 +26,54 @@
 <body>
   <div id="root">
     <div id="navbar">
-    <h1 style="color:rgba(238, 230, 222)">QuizlÃ©t</h1>
+    <h1 class="Quizlet-top-title" style="color:rgba(55,81,77)">Quizlet</h1>
     </div>
     <hr/>
-    <div>
-      <h1 style="color:rgba(238, 230, 222)">Add New Set</h1>
-      
+    <div class="float-container">
+
+
+
       <form id="form-new-set">
-        <div>
-          <label style="color:rgba(238, 230, 222)">title</label>
-          <input id="new-set-title" name="title" type="text">
-        </div>
-        <div>
-          <label style="color:rgba(238, 230, 222)">description</label>
-          <input id="new-set-description" name="description" type="text">
-        </div>
-        <button id="addSetButton" style="color:rgba(238, 230, 222)">Add new set</button>
-       
-        
-        <div>
-          <label style="color:rgba(238, 230, 222)">title to delete</label>
-          <input id="delete-set-title" name="title" type="text">
-        </div>
-        <div>
-          <label style="color:rgba(238, 230, 222)">description to delete</label>
-          <input id="delete-set-description" name="description" type="text">
-        </div>
-        <button id="deleteSetButton" style="color:rgba(238, 230, 222)"> Delete Set  </button>
-        <hr/>
-        <div id="form-new-card"></div>
-        
-        <div>
-          <h1 style="color:rgba(238, 230, 222)">Current Sets</h1>
-          
-        </div>
+
+
+          <div class="float-child">
+            <h1 style="color:rgb(238, 230, 222)">Add New Set</h1>
+            <div>
+              <label style="color:rgba(238, 230, 222)"> ‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎Deck Title</label>
+              <input id="new-set-title" name="title" type="text">
+            </div>
+            <div>
+              <label style="color:rgba(238, 230, 222)">Description</label>
+              <input id="new-set-description" name="description" type="text">
+
+            </div>
+            <button id="addSetButton" style="color:rgb(0, 0, 0)">Add new set</button>
+
+
+          </div>
+          <div class="float-child">
+            <h1 style="color:rgba(238, 230, 222)"> Delete Set</h1>
+
+            <div>
+
+              <label style="color:rgba(238, 230, 222)">‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎Deck Title</label>
+              <input id="delete-set-title" name="title" type="text">
+            </div>
+
+            <div>
+              <label style="color:rgba(238, 230, 222)">Description</label>
+              <input id="delete-set-description" name="description" type="text">
+            </div>
+            <button id="deleteSetButton" style="color:rgb(0, 0, 0)"> Delete Set  </button>
+            </div>
+
+          <hr/>
+
       </form>
+    </div>
+
+      </form>
+      <h1 class="section-divider" style="color:rgb(55,81,77)">My Decks</h1>
     </div>
   </div>
 </body>
