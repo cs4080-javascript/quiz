@@ -48,12 +48,11 @@ for (const card of set.cards) {
     correctButton.disabled = true;
     wrongButton.disabled = true;
 
-    if(buttonsClicked === totalCount) {
+    if (buttonsClicked === totalCount) {
       console.log(correctCount / totalCount);
-      window.alert(" Set complete. Your score was: "
+      window.alert("Set complete. Your score was: "
        + correctCount + "/" + totalCount + " or " + (correctCount/totalCount) * 100 + "%");
     }
-    
     
   }
   const wrongButton = document.createElement("button");
@@ -89,16 +88,9 @@ for (const card of set.cards) {
   container.appendChild(frontFrame);
   container.appendChild(backFrame);
   
-
- 
-
   cardFrame.appendChild(container);
   cardFrame.appendChild(correctButton);
   cardFrame.appendChild(wrongButton);
 
   cards.appendChild(cardFrame);
-  let correctPercentage = correctCount / totalCount;
-  
-
- 
 }
