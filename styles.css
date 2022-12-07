@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  background-color: rgb(78, 126, 119);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -64,13 +63,13 @@ header h4{
   align-items: center;
   justify-content: space-between; */
 
-  margin: auto;
+  margin: 0;
   width: fit-content;
   display: flex;
   border: none;
   cursor: pointer;
-  background: none;
-  perspective: 1000px;
+  perspective: 50px;
+  background-color:none;
 }
 
 .wrong-buttons {
@@ -91,6 +90,8 @@ header h4{
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px 5px;
+  background-color: rgb(144,174,178);
+  margin:0;
 }
 
 .set {
@@ -109,7 +110,7 @@ header h4{
   display: flex;
   border: none;
   cursor: pointer;
-  background: none;
+  background-color: none;
   perspective: 1000px;
 }
 
@@ -148,4 +149,37 @@ header h4{
 
 .card-flipped {
   transform: rotateY(180deg);
+}
+
+h1.Quizlet-top-title{
+  font-size: 15px;
+  margin:0;
+  display: flex;
+}
+
+h1.section-divider{
+  font-size: 35px;
+  background-color: rgb(144,174,178);
+  margin:0;
+}
+
+h1.new-deck{
+  font-size: 35px;
+  background-color: rgb(55,81,77);
+  margin:0;
+}
+
+form.form-set{
+  background-color: rgb(55,81,77);
+}
+
+.float-container {
+  border: 0px solid #fff;
+  padding: 0px;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  background-color: rgb(55,81,77);
 }
