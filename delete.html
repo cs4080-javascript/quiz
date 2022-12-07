@@ -10,9 +10,26 @@
   <title>Document</title>
 </head>
 <body>
-  hi this is delete
-  <div id="root">
+  <div class="card-container">
+    <h1>Delete Card</h1>
+
+    <div class="delete-term-label-and-box">
+      <label>Term</label>
+      <br>
+      <input id="delete-term-text-box" name="delete-term-text-box" type="text">
+    </div>
+
+    <div>
+      <label>Definition</label>
+      <br>
+      <input id="delete-definition-text-box" name="delete-definition-text-box" type="text">
+    </div>
+
+    <button id="delete-button">delete</button>
+
+    <div id="root">
     <div id="cards"></div>
   </div>
+
 </body>
 </html>
