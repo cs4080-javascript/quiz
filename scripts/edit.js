@@ -1,4 +1,4 @@
-import { loadSets, getSetIdByURLParam, updateSet } from "./sets.js";
+import { loadSets, getSetIdByURLParam, updateSet, saveSets } from "./sets.js";
 
 const sets = loadSets();
 const setId = getSetIdByURLParam();
@@ -12,53 +12,39 @@ for (let id = 0; id < set.cards.length; id++) {
 
   const { term, definition } = card;
 
-  //creates edit term and definition textboxes
-  const editTermLabel = document.createElement("label");
-  editTermLabel.textContent = "Term";
-  const editTermTextBox = document.createElement("input");
-  editTermTextBox.type = "text";
-  const editTermLineBreak = document.createElement("br");
+ 
+  const editButton = document.getElementById("edit-button");
+  const oldEditTermTextBox = document.getElementById("old-edit-term-text-box");
+  const oldEditDefinitionTextBox = document.getElementById("old-edit-definition-text-box");
+  const newEditTermTextBox = document.getElementById("new-edit-term-text-box");
+  const newEditDefinitionTextBox = document.getElementById("new-edit-definition-text-box");
 
-  const editDefinitionLabel = document.createElement("label");
-  editDefinitionLabel.textContent = "Defintion";
-  const editDefinitionTextBox = document.createElement("input");
-  editDefinitionTextBox.type = "text";
-
-  //creates line breaks
-  const lineBreak = document.createElement("br");
-  const newLineBreak = document.createElement("br");
-  
-  //creates edit button
-  const editButton = document.createElement("button");
-  editButton.textContent = "Edit";
-
-  const termLabel = document.createElement("h1");
-  termLabel.innerText = term;
-
-  const definitionLabel = document.createElement("p");
-  definitionLabel.innerText = definition;
-
-  //edits term and definition
   editButton.onclick = function() {
-    let newTerm = editTermTextBox.value;
-    let newDefinition = editDefinitionTextBox.value;
-    termLabel.textContent = newTerm;
-    definitionLabel.textContent = newDefinition;
+    for(let i = 0; i < set.cards.length; i++) {
+      console.log("sadasd");
+      let oldTerm = oldEditTermTextBox.value;
+      let oldDefinition = oldEditDefinitionTextBox.value;
+      let newTerm = newEditTermTextBox.value;
+      let newDefinition = newEditDefinitionTextBox.value;
 
-    sets[setId].cards[id] = {
-      term: newTerm,
-      definition: newDefinition
+      if(set.cards[i].term === oldTerm) {
+        console.log("card to edit found");
+
+        set.cards[i] = ({
+          term: newTerm,
+          definition: newDefinition
+        })
+
+        saveSets(sets);
+        break;
+
+
+      }
+      else {
+
+      }
+
     }
 
-    updateSet(sets);
   }
-
-  document.body.appendChild(editTermLabel);
-  document.body.appendChild(editTermTextBox);
-  document.body.appendChild(editTermLineBreak);
-  document.body.appendChild(editDefinitionLabel);
-  document.body.appendChild(editDefinitionTextBox);
-  document.body.appendChild(editButton);
-  document.body.appendChild(lineBreak);
-  document.body.appendChild(newLineBreak);
 }
