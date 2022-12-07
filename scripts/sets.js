@@ -1,3 +1,5 @@
+import QuizSet from "./QuizSet.js";
+
 function saveSets(value) {
   const payload = JSON.stringify(value);
   window.localStorage.setItem("sets", payload);
@@ -19,7 +21,7 @@ function deleteSet(id) {
   let sets = loadSets();
   sets.splice(id, 1);
 
-  window.localStorage.setItem("sets", JSON.stringify(set));
+  window.localStorage.setItem("sets", JSON.stringify(sets));
   window.location.reload();
 }
 
@@ -39,7 +41,28 @@ function deleteCard(setId, cardId) {
   sets[setId]["cards"].splice(cardId, 1);
 
   window.localStorage.setItem("sets", JSON.stringify(sets));
-  alert("Successfully deleted!");
+  alert("Successfully deleted card!");
+  window.location.reload();
+}
+
+function addCard(setId, value) {
+  let sets = loadSets();
+
+  sets[setId]["cards"].push(value);
+
+  window.localStorage.setItem("sets", JSON.stringify(sets));
+  alert("Successfully added card!");
+  window.location.reload();
+}
+
+function addSet(value) {
+  const { name, description } = value;
+  let sets = loadSets();
+  
+  sets.push(new QuizSet(name, description));
+
+  window.localStorage.setItem("sets", JSON.stringify(sets));
+  alert("Successfully added set!");
   window.location.reload();
 }
 
@@ -49,5 +72,7 @@ export {
   deleteSet,
   deleteCard,
   updateCard,
+  addCard,
+  addSet,
   getSetIdByURLParam
 }

@@ -1,22 +1,22 @@
-import { addSet } from "./addSet.js";
 import QuizSet from "./QuizSet.js";
-import { saveSets, loadSets, deleteSet } from "./sets.js";
+import { saveSets, loadSets, deleteSet, addSet } from "./sets.js";
 
 const useSeedData = loadSets() !== null;
 
 const currentSets = [];
 
+// Seeds dummy data, if no existing localstorage data
 const foo = new QuizSet("Concepts of Programming - Chapter 1", "The overview of languages");
 foo.add("variable", "not consistent or having a fixed pattern; liable to change.");
 foo.add("changeable", "irregular; inconstant.");
   
 const boo = new QuizSet("bob smith", "feez nuts");
-boo.add("test1", "");
-boo.add("test2", "");
-boo.add("test3", "");
-boo.add("test4", "");
-boo.add("test5", "");
-boo.add("test6", "");
+boo.add("test1", "1");
+boo.add("test2", "2");
+boo.add("test3", "3");
+boo.add("test4", "4");
+boo.add("test5", "5");
+boo.add("test6", "6");
 
 currentSets.push(foo);
 currentSets.push(boo);
@@ -31,6 +31,7 @@ setsContainer.classList.add("set-container");
 
 for (let id = 0; id < sets.length; id++) {
   const set = sets[id];
+  console.log(set);
 
   const setContainer = document.createElement("div");
   setContainer.classList.add("set");
@@ -81,24 +82,20 @@ for (let id = 0; id < sets.length; id++) {
 
 root.appendChild(setsContainer);
 
-const newSetForm = document.getElementById("form-new-set");
-
 const addSetButton = document.getElementById("addSetButton");
-const deleteSetButton = document.getElementById("deleteSetButton");
 
-addSetButton.onclick = function(event) {
-  addSet();
-}
+const newSetNameInput = document.getElementById("new-set-title");
+const newSetDescriptionInput = document.getElementById("new-set-description");
 
-deleteSetButton.onclick = function(event){
-  deleteSet();
-}
+addSetButton.onclick = function() {
+  console.log(newSetNameInput);
+  if (newSetNameInput.value.length === 0 || newSetDescriptionInput.value.length === 0) {
+    alert("Inputs must not be empty.");
+    return;
+  }
 
-newSetForm.onsubmit = function(event) {
-  event.preventDefault();
-
-  const target = event.target;
-  console.dir(target);
-
-  console.log("deeez nuts");
+  addSet({
+    name: newSetNameInput.value,
+    description: newSetDescriptionInput.value
+  });
 }

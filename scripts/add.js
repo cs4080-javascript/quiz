@@ -1,32 +1,23 @@
-import QuizSet from "./QuizSet.js";
-
-import { loadSets, getSetIdByURLParam, updateSet } from "./sets.js";
-
-const sets = loadSets();
+import { getSetIdByURLParam, addCard } from "./sets.js";
 
 const setId = getSetIdByURLParam();
 
-const set = sets[setId];
+const addButton = document.getElementById("testings");
+const addTermTextBox = document.getElementById("term-text-box");
+const addDefinitionTextBox = document.getElementById("definition-text-box");
 
-const cards = document.getElementById("cards");
+//adds term and definition
+addButton.onclick = function() {
+  let newTerm = addTermTextBox.value;
+  let newDefinition = addDefinitionTextBox.value;
 
-  const card = set.cards;
-
-  const { term, definition } = card;
-
-
-  const addButton = document.getElementById("testings");
-  const addTermTextBox = document.getElementById("term-text-box");
-  const addDefinitionTextBox = document.getElementById("definition-text-box");
-  //adds term and definition
-  addButton.onclick = function() {
-    let newTerm = addTermTextBox.value;
-    let newDefinition = addDefinitionTextBox.value;
-
-    set.cards.push({
-      term: newTerm,
-      definition: newDefinition
-    })
-
-    updateSet(sets);
+  if (newTerm.length === 0 || newDefinition.length === 0) {
+    alert("Inputs must not be empty.");
+    return;
   }
+
+  addCard(setId, {
+    term: newTerm,
+    definition: newDefinition
+  });
+}

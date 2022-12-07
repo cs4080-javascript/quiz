@@ -6,14 +6,6 @@ class QuizSet {
     this.cards = [];
   }
 
-  shuffle() {
-
-  }
-
-  delete(term) {
-
-  }
-
   add(term, definition) {
     this.cards.push({
       term,
