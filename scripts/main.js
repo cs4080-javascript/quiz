@@ -1,5 +1,7 @@
+import { addSet } from "./addSet.js";
 import QuizSet from "./QuizSet.js";
 import { saveSets, loadSets } from "./sets.js";
+import {deleteSet} from "./deleteSet.js";
 
 const useSeedData = loadSets() !== null;
 
@@ -44,7 +46,7 @@ for (const set of sets) {
   descriptionLabel.innerText = set.description;
 
   const studyButton = document.createElement("button");
-  studyButton.innerText = "Study set TEST";
+  studyButton.innerText = "Study set";
   studyButton.onclick = function() {
     const id = sets.indexOf(set);
     window.location.href = `${window.location.origin}/study.html?id=${id}`;
@@ -92,17 +94,15 @@ const newSetForm = document.getElementById("form-new-set");
 const addCardFrame = document.getElementById("form-new-card");
 
 const addSetButton = document.getElementById("addSetButton");
+const deleteSetButton = document.getElementById("deleteSetButton");
 
 addSetButton.onclick = function(event) {
-  let newSetTitle = document.getElementById("new-set-title").value;
-  let newSetDescription = document.getElementById("new-set-description").value;
-  console.log("add set button clicked");
-  const newSet = new QuizSet(newSetTitle, newSetDescription);
-  newSet.add("test", "card"); // adding test card
-  sets.push(newSet);
-  saveSets(sets);
-  window.location.reload();
+  addSet();
 
+}
+
+deleteSetButton.onclick = function(event){
+  deleteSet();
 }
 
 newSetForm.onsubmit = function(event) {
