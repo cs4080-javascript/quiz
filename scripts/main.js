@@ -11,8 +11,6 @@ const foo = new QuizSet("Concepts of Programming - Chapter 1", "The overview of 
 foo.add("variable", "not consistent or having a fixed pattern; liable to change.");
 foo.add("changeable", "irregular; inconstant.");
   
-
-
 const boo = new QuizSet("bob smith", "feez nuts");
 boo.add("test1", "");
 boo.add("test2", "");
@@ -24,10 +22,8 @@ boo.add("test6", "");
 currentSets.push(foo);
 currentSets.push(boo);
 
-
 const sets = useSeedData ? loadSets() : currentSets;
 saveSets(sets);
-
 
 const root = document.getElementById("root");
 
@@ -49,7 +45,8 @@ for (const set of sets) {
   studyButton.innerText = "Study set";
   studyButton.onclick = function() {
     const id = sets.indexOf(set);
-window.location.href = `${window.location.origin}/study.html?id=${id}`;
+    window.location.href = `${window.location.origin}/study.html?id=${id}`;
+  }
 
   const editButton = document.createElement("button");
   editButton.innerText = "Edit card";
@@ -74,15 +71,12 @@ window.location.href = `${window.location.origin}/study.html?id=${id}`;
 
   }
 
- 
-
   setContainer.appendChild(titleLabel);
   setContainer.appendChild(descriptionLabel);
   setContainer.appendChild(studyButton);
   setContainer.appendChild(editButton);
   setContainer.appendChild(addCardButton);
   setContainer.appendChild(deleteCardButton);
-
 
   setsContainer.appendChild(setContainer);
 }
