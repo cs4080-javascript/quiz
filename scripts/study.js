@@ -33,14 +33,14 @@ for (const card of set.cards) {
   const backFrame = document.createElement("div");
   backFrame.classList.add("card-back");
 
-  const termLabel = document.createElement("h1");
+  const termLabel = document.createElement("h2");
   termLabel.innerText = term;
 
   const definitionLabel = document.createElement("p");
+
   const correctButton = document.createElement("button");
-  
   correctButton.innerText = "Correct";
-  correctButton.className = "correct-buttons";
+  correctButton.className = "correct-buttons correct-buttons1";
   correctButton.onclick = function() {
 
     correctCount++;
@@ -57,7 +57,7 @@ for (const card of set.cards) {
     
   }
   const wrongButton = document.createElement("button");
-  wrongButton.className = "wrong-buttons";
+  wrongButton.className = "wrong-buttons wrong-buttons1";
   wrongButton.innerText = "Wrong";
   wrongButton.onclick = function() {
 
