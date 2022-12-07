@@ -74,7 +74,7 @@ header h4{
 
 .wrong-buttons {
   background-color: rgb(223, 36, 36);
-  height: 100px;
+  height: 80px;
   
 }
 
@@ -92,6 +92,7 @@ header h4{
   gap: 10px 5px;
   background-color: rgb(144,174,178);
   margin:0;
+  padding: 40px;
 }
 
 .set {
@@ -182,4 +183,14 @@ form.form-set{
   width: 50%;
   float: left;
   background-color: rgb(55,81,77);
+}
+
+.card-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: rgb(144,174,178);
+  color:rgb(44, 70, 66);
 }
