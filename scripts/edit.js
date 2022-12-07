@@ -1,4 +1,4 @@
-import { loadSets, getSetIdByURLParam, updateSet, saveSets } from "./sets.js";
+import { loadSets, getSetIdByURLParam, updateCard, deleteCard } from "./sets.js";
 
 const sets = loadSets();
 const setId = getSetIdByURLParam();
@@ -7,44 +7,61 @@ const set = sets[setId];
 
 const cards = document.getElementById("cards");
 
-for (let id = 0; id < set.cards.length; id++) {
-  const card = set.cards[id];
+for (let cardId = 0; cardId < set.cards.length; cardId++) {
+  const card = set.cards[cardId];
 
   const { term, definition } = card;
 
- 
-  const editButton = document.getElementById("edit-button");
-  const oldEditTermTextBox = document.getElementById("old-edit-term-text-box");
-  const oldEditDefinitionTextBox = document.getElementById("old-edit-definition-text-box");
-  const newEditTermTextBox = document.getElementById("new-edit-term-text-box");
-  const newEditDefinitionTextBox = document.getElementById("new-edit-definition-text-box");
+  const wrapper = document.createElement("div");
+  wrapper.style.padding = "20px";
 
-  editButton.onclick = function() {
-    for(let i = 0; i < set.cards.length; i++) {
-      console.log("sadasd");
-      let oldTerm = oldEditTermTextBox.value;
-      let oldDefinition = oldEditDefinitionTextBox.value;
-      let newTerm = newEditTermTextBox.value;
-      let newDefinition = newEditDefinitionTextBox.value;
+  const containerTerm = document.createElement("div");
+  const containerDefinition = document.createElement("div");
 
-      if(set.cards[i].term === oldTerm) {
-        console.log("card to edit found");
+  const termLabel = document.createElement("label");
+  termLabel.innerText = "Term";
 
-        set.cards[i] = ({
-          term: newTerm,
-          definition: newDefinition
-        })
+  const termInput = document.createElement("input");
+  termInput.setAttribute("type", "text");
+  termInput.value = term;
 
-        saveSets(sets);
-        break;
+  const definitionLabel = document.createElement("label");
+  definitionLabel.innerText = "Definition";
 
+  const definitionInput = document.createElement("input");
+  definitionInput.setAttribute("type", "text");
+  definitionInput.value = definition;
 
-      }
-      else {
-
-      }
-
+  const updateButton = document.createElement("button");
+  updateButton.innerText = "update";
+  updateButton.onclick = function() {
+    if (termInput.value.length === 0 || definitionInput.value.length === 0) {
+      alert("Empty strings can't be submitted");
+      return;
     }
-
+    updateCard(setId, cardId, {
+      term: termInput.value,
+      definition: definitionInput.value
+    });
   }
+
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "delete";
+  deleteButton.onclick = function() {
+    deleteCard(setId, cardId);
+  }
+
+  containerTerm.appendChild(termLabel);
+  containerTerm.appendChild(termInput);
+
+  containerDefinition.appendChild(definitionLabel);
+  containerDefinition.appendChild(definitionInput);
+  containerDefinition.appendChild(document.createElement("br"));
+  containerDefinition.appendChild(updateButton);
+  containerDefinition.appendChild(deleteButton);
+
+  wrapper.appendChild(containerTerm);
+  wrapper.appendChild(containerDefinition);
+
+  cards.appendChild(wrapper);
 }

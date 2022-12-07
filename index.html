@@ -1,80 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <script type="module" src="scripts/QuizSet.js"></script>
-  <script type="module" src="scripts/main.js"></script>
-  <script type="module" src="scripts/sets.js"></script>
-  <style>
-    body {
-        font-family: 'Poppins';
-    }
-
-    h1 {text-align: center;}
-    
-    div {
-      text-align: center;
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script type="module" src="scripts/QuizSet.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/sets.js"></script>
+    <style>
+      body {
+          font-family: 'Poppins';
       }
 
-    </style>
-  <title>Quiz</title>
-</head>
-<body>
-  <div id="root">
-    <div id="navbar">
-    <h1 class="Quizlet-top-title" style="color:rgba(55,81,77)">Quizlet</h1>
-    </div>
-    <hr/>
-    <div class="float-container">
-
-
-
+      h1 {
+        text-align: center;
+      }
+      
+      div {
+        text-align: center;
+      }
+      </style>
+    <title>Quiz</title>
+  </head>
+  <body>
+    <div id="root">
+      <div id="navbar">
+        <h1 class="Quizlet-top-title" style="color:rgba(55,81,77)">Quiz</h1>
+      </div>
+      <hr/>
       <form id="form-new-set">
-
-
-          <div class="float-child">
-            <h1 style="color:rgb(238, 230, 222)">Add New Set</h1>
-            <div>
-              <label style="color:rgba(238, 230, 222)"> ‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎Deck Title</label>
-              <input id="new-set-title" name="title" type="text">
-            </div>
-            <div>
-              <label style="color:rgba(238, 230, 222)">Description</label>
-              <input id="new-set-description" name="description" type="text">
-
-            </div>
-            <button id="addSetButton" style="color:rgb(0, 0, 0)">Add new set</button>
-
-
+        <div class="float-child">
+          <h1 style="color:rgb(238, 230, 222)">Add New Set</h1>
+          <div>
+            <label style="color:rgb(238, 230, 222)">Set Title</label>
+            <input id="new-set-title" name="title" type="text">
           </div>
-          <div class="float-child">
-            <h1 style="color:rgba(238, 230, 222)"> Delete Set</h1>
-
-            <div>
-
-              <label style="color:rgba(238, 230, 222)">‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎Deck Title</label>
-              <input id="delete-set-title" name="title" type="text">
-            </div>
-
-            <div>
-              <label style="color:rgba(238, 230, 222)">Description</label>
-              <input id="delete-set-description" name="description" type="text">
-            </div>
-            <button id="deleteSetButton" style="color:rgb(0, 0, 0)"> Delete Set  </button>
-            </div>
-
-          <hr/>
-
-      </form>
-    </div>
-
+          <div>
+            <label style="color:rgba(238, 230, 222)">Description</label>
+            <input id="new-set-description" name="description" type="text">
+          </div>
+          <button id="addSetButton" style="color:rgb(0, 0, 0)">Add new set</button>
+        </div>
       </form>
       <h1 class="section-divider" style="color:rgb(55,81,77)">My Decks</h1>
     </div>
-  </div>
-</body>
+  </body>
 </html>

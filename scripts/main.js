@@ -1,7 +1,6 @@
 import { addSet } from "./addSet.js";
 import QuizSet from "./QuizSet.js";
-import { saveSets, loadSets } from "./sets.js";
-import {deleteSet} from "./deleteSet.js";
+import { saveSets, loadSets, deleteSet } from "./sets.js";
 
 const useSeedData = loadSets() !== null;
 
@@ -30,7 +29,9 @@ const root = document.getElementById("root");
 const setsContainer = document.createElement("div");
 setsContainer.classList.add("set-container");
 
-for (const set of sets) {
+for (let id = 0; id < sets.length; id++) {
+  const set = sets[id];
+
   const setContainer = document.createElement("div");
   setContainer.classList.add("set");
   setContainer.setAttribute("id", set.name);
@@ -60,15 +61,12 @@ for (const set of sets) {
   addCardButton.onclick = function() {
     const id = sets.indexOf(set);
     window.location.href = `${window.location.origin}/add.html?id=${id}`;
-    
   }
 
-  const deleteCardButton = document.createElement("button");
-  deleteCardButton.innerText = "Delete card";
-  deleteCardButton.onclick = function() {
-    const id = sets.indexOf(set);
-    window.location.href = `${window.location.origin}/delete.html?id=${id}`;
-
+  const deleteSetButton = document.createElement("button");
+  deleteSetButton.innerText = "Delete Set";
+  deleteSetButton.onclick = function() {
+    deleteSet(id);
   }
 
   setContainer.appendChild(titleLabel);
@@ -76,7 +74,7 @@ for (const set of sets) {
   setContainer.appendChild(studyButton);
   setContainer.appendChild(editButton);
   setContainer.appendChild(addCardButton);
-  setContainer.appendChild(deleteCardButton);
+  setContainer.appendChild(deleteSetButton);
 
   setsContainer.appendChild(setContainer);
 }
@@ -84,14 +82,12 @@ for (const set of sets) {
 root.appendChild(setsContainer);
 
 const newSetForm = document.getElementById("form-new-set");
-const addCardFrame = document.getElementById("form-new-card");
 
 const addSetButton = document.getElementById("addSetButton");
 const deleteSetButton = document.getElementById("deleteSetButton");
 
 addSetButton.onclick = function(event) {
   addSet();
-
 }
 
 deleteSetButton.onclick = function(event){

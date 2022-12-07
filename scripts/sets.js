@@ -15,14 +15,39 @@ function getSetIdByURLParam() {
   return setId;
 }
 
-function updateSet(value) {
-  const payload = JSON.stringify(value);
-  window.localStorage.setItem("sets", payload);
+function deleteSet(id) {
+  let sets = loadSets();
+  sets.splice(id, 1);
+
+  window.localStorage.setItem("sets", JSON.stringify(set));
+  window.location.reload();
+}
+
+function updateCard(setId, cardId, value) {
+  let sets = loadSets();
+
+  sets[setId]["cards"][cardId] = value;
+
+  window.localStorage.setItem("sets", JSON.stringify(sets));
+  alert("Successfully updated!");
+  window.location.reload();
+}
+
+function deleteCard(setId, cardId) {
+  let sets = loadSets();
+
+  sets[setId]["cards"].splice(cardId, 1);
+
+  window.localStorage.setItem("sets", JSON.stringify(sets));
+  alert("Successfully deleted!");
+  window.location.reload();
 }
 
 export {
   saveSets,
   loadSets,
-  updateSet,
+  deleteSet,
+  deleteCard,
+  updateCard,
   getSetIdByURLParam
 }
